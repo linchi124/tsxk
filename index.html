@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吞噬星空 · 转盘人生</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stars"></div>
+
+<div class="container">
+  <header class="header">
+    <h1>🌌 吞噬星空 · 转盘人生 🌌</h1>
+    <p class="subtitle">穿越时空，在吞噬宇宙中书写你的传奇</p>
+  </header>
+
+  <main class="main-content">
+    <!-- 左侧：个人属性面板 -->
+    <aside class="panel status-panel" id="statusPanel">
+      <h2>📊 个人属性</h2>
+      <div class="status-item">
+        <span class="label">境界：</span>
+        <span class="value" id="realmValue">—</span>
+      </div>
+      <div class="status-item">
+        <span class="label">当前阶段：</span>
+        <span class="value" id="stageValue">未开始</span>
+      </div>
+      <div class="status-item">
+        <span class="label">转盘进度：</span>
+        <span class="value" id="progressValue">0 / 60</span>
+      </div>
+      <div class="status-item">
+        <span class="label">特殊经历：</span>
+        <span class="value" id="specialExpValue">0</span>
+      </div>
+      <div class="status-item">
+        <span class="label">死亡选项：</span>
+        <span class="value" id="deathCountValue">2</span>
+      </div>
+
+      <h3>🏆 宝物</h3>
+      <div class="tag-list" id="itemList">
+        <span class="empty">暂无</span>
+      </div>
+
+      <h3>🏷️ 标签</h3>
+      <div class="tag-list" id="tagList">
+        <span class="empty">暂无</span>
+      </div>
+
+      <h3>⚔️ 阶段状态</h3>
+      <div class="tag-list" id="stageStateList">
+        <span class="empty">暂无</span>
+      </div>
+    </aside>
+
+    <!-- 中间：转盘区域 -->
+    <section class="wheel-section">
+      <div class="stage-title" id="stageTitle">🚀 点击下方按钮开始你的穿越之旅</div>
+      <div class="wheel-title" id="wheelTitle">第一次转盘：选择你的时间节点</div>
+
+      <div class="wheel-container">
+        <div class="pointer">▼</div>
+        <canvas id="wheelCanvas" width="500" height="500"></canvas>
+        <div class="wheel-center">
+          <button id="spinBtn" class="spin-btn">🎯 开始转盘</button>
+        </div>
+      </div>
+
+      <!-- 本次结果（新增：独立的结果显示框） -->
+      <div class="spin-result">
+        <div class="spin-result-header">⭐ 本次结果</div>
+        <div class="spin-result-content" id="resultText">等待转盘启动...</div>
+      </div>
+
+      <!-- 事件日志 -->
+      <div class="log-panel">
+        <h3>📜 事件日志</h3>
+        <div class="log-content" id="logContent">
+          <div class="log-entry log-info">游戏已就绪，点击"开始转盘"启动你的人生！</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 右侧：阶段列表 -->
+    <aside class="panel stage-list-panel">
+      <h2>📖 六大阶段</h2>
+      <div class="stage-item" data-stage="1">
+        <span class="stage-num">1</span>
+        <div>
+          <div class="stage-name">地球时期</div>
+          <div class="stage-min">保底：行星级</div>
+        </div>
+      </div>
+      <div class="stage-item" data-stage="2">
+        <span class="stage-num">2</span>
+        <div>
+          <div class="stage-name">罗峰宇宙闯荡</div>
+          <div class="stage-min">保底：宇宙级</div>
+        </div>
+      </div>
+      <div class="stage-item" data-stage="3">
+        <span class="stage-num">3</span>
+        <div>
+          <div class="stage-name">域外战场时期</div>
+          <div class="stage-min">保底：不朽军主</div>
+        </div>
+      </div>
+      <div class="stage-item" data-stage="4">
+        <span class="stage-num">4</span>
+        <div>
+          <div class="stage-name">原始星时期</div>
+          <div class="stage-min">保底：宇宙尊者</div>
+        </div>
+      </div>
+      <div class="stage-item" data-stage="5">
+        <span class="stage-num">5</span>
+        <div>
+          <div class="stage-name">宇宙海时期</div>
+          <div class="stage-min">保底：宇宙之主</div>
+        </div>
+      </div>
+      <div class="stage-item" data-stage="6">
+        <span class="stage-num">6</span>
+        <div>
+          <div class="stage-name">界兽危机</div>
+          <div class="stage-min">保底：真神</div>
+        </div>
+      </div>
+
+      <div class="restart-area">
+        <button id="restartBtn" class="restart-btn">🔄 重新开始</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 结局弹窗 -->
+  <div id="endingModal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="endingTitle">结局</h2>
+      <p id="endingDesc">结局描述</p>
+      <button id="closeModalBtn" class="modal-btn">确定</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
